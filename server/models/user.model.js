@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import crypto from 'crypto'
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -48,6 +49,7 @@ UserSchema.methods = {
                 .update(password)
                 .digest('hex')
         } catch (err) {
+            console.log(err)
             return ''
         }
     },
