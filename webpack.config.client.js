@@ -1,4 +1,4 @@
-const path = requre('path')
+const path = require('path')
 const webpack = require('webpack')
 const CURRENT_WORKING_DIR = process.cwd()
 
@@ -7,7 +7,7 @@ const config = {
     mode: "development",
     devtool: 'eval-source-map',
     entry: [
-        'wepback-hot-middleware/client?reload=true',
+        'webpack-hot-middleware/client?reload=true',
         path.join(CURRENT_WORKING_DIR, 'client/main.js')
     ],
     output: {
@@ -21,6 +21,10 @@ const config = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
+            },
+            {
+                test: /\.(ttf|eot|svg|gif|jpg|png)(\?[\s\S]+)?$/,
+                use: 'file-loader'
             }
         ]
     },
