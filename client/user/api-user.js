@@ -26,7 +26,7 @@ const list = async (signal) => {
     }
 }
 
-const read = async (prams, credentials, signal) => {
+const read = async (params, credentials, signal) => {
     try {
         let response = await fetch('/api/users/' + params.userId, {
             method: 'GET',
@@ -45,7 +45,7 @@ const read = async (prams, credentials, signal) => {
 
 const update = async (params, credentials, user) => {
     try {
-        let response = await fetch('/api/user/' + params.userId, {
+        let response = await fetch('/api/users/' + params.userId, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
